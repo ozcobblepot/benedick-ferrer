@@ -1,0 +1,305 @@
+/* TT Neoris font hooks
+   Add your TT Neoris font files into assets/fonts/ as:
+     - TTNeoris-Regular.woff2
+     - TTNeoris-Bold.woff2
+   The site will use them when present; otherwise fall back to system fonts. */
+@font-face {
+  font-family: 'TT Neoris';
+  src: url('assets/fonts/TTNeoris-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Neoris';
+  src: url('assets/fonts/TTNeoris-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background: #111;
+  color: #fafafa;
+  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Header */
+.site-header {
+  width: 100%;
+  max-width: 920px;
+  margin: 12px auto 6px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fafafa;
+}
+
+.profile-image {
+  width: 160px;
+  height: 160px;
+  max-width: 160px;
+  max-height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+}
+
+.site-meta {
+  margin-top: 10px;
+  max-width: 720px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 900;
+  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.site-subinfo {
+  margin-top: 12px;
+  color: #c8cbd1;
+  font-size: 15px;
+  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 400;
+}
+
+.loc-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+  margin-right: 8px;
+  fill: #f5f7fa;
+  opacity: 0.9;
+}
+
+.site-bio {
+  margin: 16px 0 0;
+  color: #a9adb3;
+  line-height: 1.45;
+  font-size: 15px;
+  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 400;
+}
+
+/* Social icons row */
+.social-row {
+  margin-top: 18px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1; /* prevent stretching */
+  padding: 6px 4px;
+  border-radius: 6px;
+  min-width: 32px;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  object-fit: contain;
+  filter: brightness(1);
+  opacity: 0.98;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.08);
+  filter: brightness(1.03);
+}
+
+/* Tooltips for social links (only for hover-capable devices) */
+@media (hover: hover) and (pointer: fine) {
+  .social-link {
+    position: relative;
+  }
+  .social-link::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    bottom: 100%;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.12s ease, transform 0.12s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    z-index: 40;
+  }
+  .social-link:hover::after,
+  .social-link:focus::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px);
+  }
+  .social-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+    border-radius: 8px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Swiper */
+.swiper {
+  width: 100%;
+  max-width: 900px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background: transparent;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  transition: transform 0.3s;
+  pointer-events: auto;
+}
+
+.swiper-slide video:hover {
+  transform: scale(1.05);
+}
+
+.swiper-pagination-bullet {
+  background: #fafafa80;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fafafa;
+}
+
+/* Tools */
+.tools-section {
+  width: 100%;
+  max-width: 920px;
+  margin: 28px auto;
+  padding: 18px;
+}
+
+.tools-section h2 {
+  font-weight: 900;
+  font-size: 32px;
+  margin: 0 0 20px;
+  color: #f5f7fa;
+  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  text-align: center;
+}
+
+.tools-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.035);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  cursor: default;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+  flex: 1 1 0; /* allow badges to shrink and share available space, no scrolling */
+  min-width: 0; /* needed so children can shrink/truncate */
+}
+
+.tool-badge:hover {
+  transform: translateY(-6px);
+  opacity: 0.98;
+}
+
+.tool-badge__icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  filter: brightness(1);
+}
+
+.tool-badge__name {
+  color: #e6eef6;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+  .site-title {
+    font-size: 30px;
+  }
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .tool-badge__name {
+    font-size: 15px;
+  }
+  .tools-grid {
+    justify-content: center;
+    gap: 8px;
+  }
+  .tool-badge {
+    padding: 8px 10px;
+  }
+}
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showreels Slider</title>
+
+  <!-- SwiperJS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/media/xampleprofile.png" alt="Profile" class="profile-image">
+    <div class="site-meta">
+  <h1 class="site-title">Benedick Ferrer</h1>
+  <div class="site-subinfo"><svg class="loc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Manila, PH</div>
+      <p class="site-bio">I’m a dedicated video editor with years of experience shaping ideas into impactful visual stories. Skilled in different editing tools, I create engaging content for social media, advertisements, and short-form videos. Alongside video editing, I also design infographics and digital content for brands, always aiming to capture attention and leave a lasting impression.</p>
+      <div class="social-row">
+        <a href="mailto:you@example.com" aria-label="Email" class="social-link" data-tooltip="benedick.ferrer02@gmail.com">
+          <img src="assets/media/email-logo.png" alt="Email" class="social-icon">
+          <span class="sr-only">Email</span>
+        </a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="social-link" data-tooltip="@ben.hppn">
+          <img src="assets/media/instagram-logo.png" alt="Instagram" class="social-icon">
+          <span class="sr-only">Instagram</span>
+        </a>
+        <a href="https://discord.com/" target="_blank" rel="noopener" aria-label="Discord" class="social-link" data-tooltip="ozcobblepot">
+          <img src="assets/media/discord-logo.png" alt="Discord" class="social-icon">
+          <span class="sr-only">Discord</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slider container -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <video autoplay loop muted playsinline>
+          <source src="assets/media/video1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay loop muted playsinline>
+          <source src="assets/media/video2.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay loop muted playsinline>
+          <source src="assets/media/video3.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay loop muted playsinline>
+          <source src="assets/media/video4.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay loop muted playsinline>
+          <source src="assets/media/video4.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+    <!-- Pagination dots -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Editing tools section -->
+  <section class="tools-section">
+    <h2>Editing Tools</h2>
+    <div class="tools-grid">
+      <div class="tool-badge">
+        <img src="assets/media/capcut-logo.png" alt="CapCut" class="tool-badge__icon">
+        <span class="tool-badge__name">CapCut</span>
+      </div>
+      <div class="tool-badge">
+        <img src="assets/media/davinci logo.png" alt="DaVinci" class="tool-badge__icon">
+        <span class="tool-badge__name">DaVinci Resolve</span>
+      </div>
+      <div class="tool-badge">
+        <img src="assets/media/illustrator-logo.png" alt="Illustrator" class="tool-badge__icon">
+        <span class="tool-badge__name">Adobe Illustrator</span>
+      </div>
+      <div class="tool-badge">
+        <img src="assets/media/inkscape-logo.png" alt="Inkscape" class="tool-badge__icon">
+        <span class="tool-badge__name">Inkscape</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SwiperJS script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
