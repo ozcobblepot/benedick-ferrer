@@ -1,8 +1,4 @@
-/* TT Neoris font hooks
-   Add your TT Neoris font files into assets/fonts/ as:
-     - TTNeoris-Regular.woff2
-     - TTNeoris-Bold.woff2
-   The site will use them when present; otherwise fall back to system fonts. */
+/* TT Neoris font hooks */
 @font-face {
   font-family: 'TT Neoris';
   src: url('assets/fonts/TTNeoris-Regular.woff2') format('woff2');
@@ -28,6 +24,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden; /* ✅ prevent horizontal scrolling */
 }
 
 /* Header */
@@ -69,7 +66,6 @@ body {
   margin-top: 12px;
   color: #c8cbd1;
   font-size: 15px;
-  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   font-weight: 400;
 }
 
@@ -87,7 +83,6 @@ body {
   color: #a9adb3;
   line-height: 1.45;
   font-size: 15px;
-  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   font-weight: 400;
 }
 
@@ -106,7 +101,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1; /* prevent stretching */
+  line-height: 1;
   padding: 6px 4px;
   border-radius: 6px;
   min-width: 32px;
@@ -127,7 +122,7 @@ body {
   filter: brightness(1.03);
 }
 
-/* Tooltips for social links (only for hover-capable devices) */
+/* Tooltips */
 @media (hover: hover) and (pointer: fine) {
   .social-link {
     position: relative;
@@ -227,7 +222,6 @@ body {
   font-size: 32px;
   margin: 0 0 20px;
   color: #f5f7fa;
-  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   text-align: center;
 }
 
@@ -251,7 +245,7 @@ body {
   backdrop-filter: blur(4px);
   cursor: default;
   transition: transform 0.18s ease, opacity 0.18s ease;
-  flex: 0 1 auto; /* allow badges to shrink but prefer content size */
+  flex: 0 1 auto;
 }
 
 .tool-badge:hover {
@@ -271,34 +265,67 @@ body {
   font-weight: 900;
   font-size: 18px;
   letter-spacing: 0.2px;
-  font-family: 'TT Neoris', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
 }
 
-/* Responsive */
+/* ✅ Responsive Fixes */
 @media (max-width: 720px) {
+  .site-header {
+    padding: 10px;
+    text-align: center;
+  }
+
   .profile-image {
     width: 120px;
     height: 120px;
   }
+
   .site-title {
-    font-size: 30px;
+    font-size: 28px;
+    word-wrap: break-word;
   }
+
+  .site-bio {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 0 12px;
+    text-align: center;
+  }
+
   .social-icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
-  .tool-badge__name {
-    font-size: 15px;
-  }
+
+  /* ✅ Make editing tools stack */
   .tools-grid {
+    flex-wrap: wrap;  
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
   }
+
   .tool-badge {
-    padding: 8px 10px;
+    flex: 1 1 45%;   /* ~2 per row */
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .tool-badge__name {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* ✅ Swiper scale properly */
+  .swiper {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 0;
+  }
+
+  .swiper-slide {
+    width: 200px;
+    height: 200px;
   }
 }
-
